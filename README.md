@@ -1,7 +1,5 @@
 # java-course-day1
 
-# OBS Koden och texten nedan är inte renskriven och rätt rörig. Detta kommer uppdateras senast 2022-04-29 (förhoppningsvis redan kvällen 2022-04-27)
-
 Kod från dag 1 i "Utveckling i modern Java"
 
 
@@ -25,23 +23,93 @@ Det är såklart helt okej att använda någon annan IDE. T.ex Eclipse, VSCode, 
 
 https://dev.java/ - bra samlingssida för allt rörande Java
 
-https://jdk.java.net/18/ - ladda ned JDK
+https://jdk.java.net/18/ - ladda ned JDK.
 
-Installera Java 
-- Ladda ned JDK
-- På Windows lägg till JAVA_HOME
-- skriv guide här hur man gör
+### Installera Java 
+- Ladda ned JDK från länk ovan
+- På Windows lägg till en systemvariabel JAVA_HOME som pekar på där du unzippat JDK:en   
+  ![JAVA_HOME](javahome.PNG)
+
+- Välj därefter den systemvariabeln som heter Path och tryck redigera och lägg där till ```%JAVA_HOME%\bin```  
+  ![PATH](addjavatopath.PNG)
+- Öppna nu ett terminalfönster och skriv ```java -version``` . Om allt gått bra bör man få tillbaka vilken java-version det är.
 
 
-Skriv om Java kompilering, jconsole, javap,jshell
+### javac
+För att kompilera ett Java-program från en terminal så används ``javac``. 
 
-Skriv om Maven: https://mvnrepository.com/
+- Om vi har ett litet program som ser ut som    
+```java
+  public class MyFirstClass {
+      //i intelliJ, skriv "psvm" och tryck enter för att få en main-metod
+      public static void main(String[] args) {
+      //"sout" och enter ger System.out.println()
+      //args är argument in till programmet, args[0] är det första argumentet
+          System.out.println("Hello World " + args[0]);
+  }
+  }
 
+```
+- som ligger i en fil MyFirstClass.java så kompilerar vi det genom att köra   
+ ```javac MyFirstClass.java```
+- Därefter kan vi köra programmet genom att köra    
+- ```java MyFirstClass firstArg```   
+- och vi får då output ``Hello World firstArg```från programmet.
+
+### Andra command-line tools som kommer med JDK:en   
+- `jconsole` för att ansluta till ett java-program och få en grafisk överblick över minnesanvändning, antal trådar, CPU-användning etc 
+- `jshell` en REPL för Java.
+- och ett antal fler
+
+### Maven
+Maven är ett byggverktyg för Java. Använder en XML-baserad konfigurationsmodell i en speciell fil som heter pom.xml (pom = Project Object Model)
+
+För att installera Maven ladda ned från https://maven.apache.org/download.cgi
+
+- På Windows lägg till en systemvariabel MAVEN_HOME som pekar på där du unzippat nedladdningen   
+    ![MAVEN_HOME](mavenhome.PNG)
+- Välj därefter den systemvariabeln som heter Path och tryck redigera och lägg där till ```%MAVEN_HOME%\bin```
+  ![PATHMAVEN](addmaventopath.PNG)
+
+
+- För att skapa ett Maven-projekt i IntelliJ ```File>New>Project>Välj Maven i högerspalten>next```
+- Fyll i name, location och groupid.
+
+Via terminalen kan man köra    
+
+```
 mvn archetype:generate \
 -DgroupId=com.combitech \
 -DartifactId=java-day-1 \
 -DarchetypeVersion=1.4 \
 -DinteractiveMode=false
+```
 
-Skriv om klasser, etc
+För att lägga till ett dependency och använda något som inte är inkluderat i JDK:en så lägger man det i pom.xml under `` dependencies``
+
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>5.8.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+    </dependencies>
+
+
+För att veta vilket groupId, artifactId och version man kan ange kan man söka efter biblioteket man vill lägga till på:
+https://mvnrepository.com/
+
+
+
+
 
