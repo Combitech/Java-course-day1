@@ -2,14 +2,11 @@ package classintro;
 
 import java.time.LocalDate;
 import java.util.Objects;
-
+//klassen Book ärver från ReadableObject och implementerar interfacet Readable
 public class Book extends ReadableObject implements Readable {
 
     private int nrOfPages;
     private String name;
-
-    //kom på något bättre exempel för en bok. Detta är för en hund exvis.
-    public static final int NR_OF_EYES = 2;
 
     //konstruktor - används för att skapa objekt av klassen
     public Book(int nrOfPages, String name, LocalDate publishedDate){
@@ -19,7 +16,7 @@ public class Book extends ReadableObject implements Readable {
 
     }
     //behöver explicit skapa en no-arg konstruktor eftersom vi har en annan konstruktor i klassen.
-    //skapar vi inte någoin konstruktor alls får vi no-arg konstruktorn automatiskt.
+    //skapar vi inte någon konstruktor alls får vi no-arg konstruktorn automatiskt.
     public Book() {}
 
 

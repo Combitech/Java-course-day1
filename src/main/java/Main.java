@@ -15,6 +15,7 @@ import org.apache.logging.log4j.Logger;
 
 public class Main {
 
+    //skapar upp en logger som vi kan använda för att logga. Den är konfigurerad i src/main/resource/log4j2.xml
     private static final Logger log = LogManager.getLogger(Main.class);
 
 
@@ -32,24 +33,26 @@ public class Main {
         //var keyword för att definera variabel
         var a = "a";
         var b = 3;
-//        book2.read();
-//        note1.read();
 
+        //skapar objekt med interface eller superklassen som statisk typ.
         Readable note2 = new Note();
         Readable book3 = new Book();
 
         ReadableObject note3 = new Note();
 
-//        log.trace("trace");
-//        log.debug("debug");
-//        log.info("info");
-//        log.warn("warn");
-//        log.error("error");
 
+        //olika typer av loggning. I filen src/main/resources/log4j2.xml ställer vi in log-level för projektet men kan även ställa in för enskilda klasser eller packages.
+        log.trace("trace");
+        log.debug("debug");
+        log.info("info");
+        log.warn("warn");
+        log.error("error");
+
+        //skapar upp ett nytt objekt av Pair som då tar String och Book som typer.
         Pair<String, Book> pair = new Pair<>();
         pair.setValues("första boken", book1);
 
-//        System.out.println(book1);
+        System.out.println(book1);
 
         //Javas 8 primitive data types
 
@@ -89,43 +92,47 @@ public class Main {
 
         Character boxedChar;
 
-//        System.out.println(book1.getNrOfPages());
-//        System.out.println(book1.getName());
-//        System.out.println(book1.getPublishedDate());
-//        System.out.println(book2.getNrOfPages());
-//        System.out.println(book2.getName());
-//        System.out.println(book2.getPublishedDate());
+        System.out.println(book1.getNrOfPages());
+        System.out.println(book1.getName());
+        System.out.println(book1.getPublishedDate());
+        System.out.println(book2.getNrOfPages());
+        System.out.println(book2.getName());
+        System.out.println(book2.getPublishedDate());
 
-//        System.out.println(book1);
-//        changeReference(book1);
-//        System.out.println(book1);
+
+        //Java är pass-by-value
+        System.out.println(book1);
+        changeReference(book1);
+        System.out.println(book1);
         // book1 refererar till ett objekt som "heter" book1
         // a refererar också till book1
         //skapar ett nytt objekt b
         //sätter namnet på b
-        //sätter att a refererar till b
-//        System.out.println(book1.getName());
-//        modifyReference(book1);
-//        // book1 refererar till ett objekt som "heter" book1
-//        // c refererar också till book1
-//        //sätter namnet på c
-//        System.out.println(book1.getName());
+        //sätter att a nu refererar till b
+        //vi har alltså inte ändrat på book1
+        System.out.println(book1.getName());
+        modifyReference(book1);
+        // book1 refererar till ett objekt som "heter" book1
+        // c refererar också till book1
+        //sätter namnet på c
+        //eftersom c refererar till book1 så ändras namnet även på book1
+        System.out.println(book1.getName());
 
-//        List<String> stringList = List.of("martin","frisk");
-//        stringList = FunctionalExamples.listToUpperCase(stringList);
-//        stringList = FunctionalExamples.filterList(stringList);
-//        stringList.forEach(System.out::println);
-//        System.out.println(FunctionalExamples.numberOfStrings(stringList));
+        List<String> stringList = List.of("martin","frisk");
+        stringList = FunctionalExamples.listToUpperCase(stringList);
+        stringList = FunctionalExamples.filterList(stringList);
+        stringList.forEach(System.out::println);
+        System.out.println(FunctionalExamples.numberOfStrings(stringList));
 
 
         try {
-            FileInputStream fs = ExceptionsExamples.getFileThrowsException("kahaskdhasd");
+            FileInputStream fs = ExceptionsExamples.getFileThrowsException("somepath");
         } catch (FileNotFoundException e) {
             //hantera felet
         }
 
         try {
-            FileInputStream fs2 = ExceptionsExamples.getFileHandlesFileExceptionButThrowsCustom("kahaskdhasd");
+            FileInputStream fs2 = ExceptionsExamples.getFileHandlesFileExceptionButThrowsCustom("somepath");
         } catch (CustomException e) {
             //hantera felet
         }
@@ -140,7 +147,7 @@ public class Main {
 
         System.out.println(textblock);
 
-//        java16 Records
+        //   java16 Records
         Point2DRecord point = new Point2DRecord(2,2);
         point.x();
         point.y();
@@ -161,7 +168,7 @@ public class Main {
     public static void modifyReference(Book c) {
         c.setName("c");
     }
-
+    //använder för att skriva några små korta unit-tests
     public boolean isEven(int a){
         return a % 2 == 0;
     }

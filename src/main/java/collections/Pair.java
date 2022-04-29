@@ -1,5 +1,7 @@
 package collections;
 
+
+//T och K är generiska värden
 public class Pair<T,K> {
 
     private T first;

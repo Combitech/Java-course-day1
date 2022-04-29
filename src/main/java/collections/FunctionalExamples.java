@@ -10,7 +10,7 @@ public class FunctionalExamples {
 
     public static List<String> listToUpperCase(List<String> stringList){
         //två olika sätt att göra samma sak. inne i map gör samma sak både på rad 8 och 9
-//       return stringList.stream().map(s -> s.toUpperCase()).toList();
+       //return stringList.stream().map(s -> s.toUpperCase()).toList();
        return stringList.stream().map(String::toUpperCase).toList();
     }
 
