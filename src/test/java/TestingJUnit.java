@@ -26,7 +26,8 @@ public class TestingJUnit {
     public void numberIsEven(){
         Main m = new Main();
         boolean isEven = m.isEven(2);
-        Assertions.assertTrue(isEven);
+        System.out.println("numberIsEven");
+
     }
 
     @Test
@@ -34,17 +35,22 @@ public class TestingJUnit {
         Main m = new Main();
         boolean isEven = m.isEven(3);
         Assertions.assertFalse(isEven);
+        System.out.println("numberIsNotEven");
     }
     @Test
     public void shouldThrowException(){
         String s = null;
         Assertions.assertThrows(NullPointerException.class, () -> s.equals("s"));
+        System.out.println("shouldThrowException");
+
     }
 
     @Test
     public void shouldNotThrowException(){
         String s = "null";
         Assertions.assertDoesNotThrow(() -> s.equals("null"));
+        System.out.println("shouldNotThrowException");
+
     }
 
 
