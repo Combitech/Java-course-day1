@@ -6,15 +6,29 @@ import org.apache.logging.log4j.Logger;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.List;
 
 public class ExceptionsExamples {
 
-    private final static Logger log = LogManager.getLogger(ExceptionsExamples.class);
+    public static void main(String[] args)  {
+        try {
+            List<Integer> numbers = getNumbersFromFile("src/main/resources/numbers.txt");
+            int number = numbers.get(6);
+        } catch (IOException e) {
+            System.out.println("File does not exist");
+        }
+    }
 
-    public static FileInputStream getFileThrowsException(String path) throws FileNotFoundException {
-        File file = new File(path);
-        FileInputStream stream = new FileInputStream(file);
-        return stream;
+    private static final  Logger log = LogManager.getLogger(ExceptionsExamples.class);
+
+    public static List<Integer> getNumbersFromFile(String path) throws IOException {
+        try (var reader = Files.newBufferedReader(Paths.get(path))) {
+            return Arrays.stream(reader.readLine().split(",")).map(Integer::parseInt).toList();
+        }
     }
 
     public static FileInputStream getFileHandlesFileExceptionButThrowsCustom(String path) throws CustomException {

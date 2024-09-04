@@ -125,11 +125,11 @@ public class Main {
         System.out.println(FunctionalExamples.numberOfStrings(stringList));
 
 
-        try {
-            FileInputStream fs = ExceptionsExamples.getFileThrowsException("somepath");
-        } catch (FileNotFoundException e) {
-            //hantera felet
-        }
+//        try {
+//            FileInputStream fs = ExceptionsExamples.getFileThrowsException("somepath");
+//        } catch (FileNotFoundException e) {
+//            //hantera felet
+//        }
 
         try {
             FileInputStream fs2 = ExceptionsExamples.getFileHandlesFileExceptionButThrowsCustom("somepath");

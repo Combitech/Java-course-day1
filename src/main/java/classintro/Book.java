@@ -54,9 +54,8 @@ public class Book extends ReadableObject implements Readable {
         if (this == other){
             return true;
         }
-        if(other instanceof Book){
-            Book newBook = (Book) other;
-            if(Objects.equals(newBook.getName(), this.getName())){
+        if(other instanceof Book newBook) {
+            if(Objects.equals(newBook.getName(), this.getName())) {
                 return true;
             }
         }

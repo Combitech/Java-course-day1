@@ -25,12 +25,14 @@ public class StringDemo {
         String textBlock = """
                 Men från Java15 och framåt finns stöd för 
                 text blocks
-                så jag kan skriva hur många rader jag vill
+                så jag kan skriva hur många rader
+                jag vill
                 """;
         //formatterade strängar kan skapas med String.format
         String catName = "Sotis";
         int age = 6;
         String formattedString = String.format("Min katt heter %s, han är %d år gammal",catName, age);
+        "Min %S".formatted("katt");
         System.out.println(formattedString);
 
         //såhär kan man konvertera mellan strängar och datatyper för tal.

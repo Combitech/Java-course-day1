@@ -9,20 +9,9 @@ public class CollectionsExample {
 
     public void listExamples(){
 
-        //array
-        String[] array = new String[1];
-        array[0] = "Martin";
-
-        //ger ett runtime-fel, alla klasser i Java ärver från Object. Så vi kan lägga till en sträng i en Integer array
-        Object[] objectArray = new Integer[1];
-        objectArray[0] = "Martin";
-
 
         //IDE varnar oss och vi kan inte kompilera nedan
         //List<Object> ol = new ArrayList<Integer>();
-
-
-
 
         //använd list där det går istället för arrays
         List<String> list = new ArrayList();

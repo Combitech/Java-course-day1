@@ -109,7 +109,32 @@ För att lägga till ett dependency och använda något som inte är inkluderat 
 För att veta vilket groupId, artifactId och version man kan ange kan man söka efter biblioteket man vill lägga till på:
 https://mvnrepository.com/
 
+### Grunder
 
+- ####Variabler 
+    Det finns fyra "typer" av variabler i Java    
+
+    - Instansvariabler (icke-statiska variabler). Dessa lagrar state för en instans av en klass, dvs har unika värden för varje objekt. De är deklarerade utan `static` keyword.
+
+    - Klassvariabler. En klassvariabel är deklarerad med `static` keyword; detta betyder att det endast finns en kopia av denna variabeln som delas mellan alla objekt av klassen. Exempelvis  
+   en klass som representerar en hund skulle kunna ha en variabel som är `static` för antal ben. Då alla hundar har fyra ben och således skulle variabeln defineras som `static int numLegs = 4;`
+    - Lokala variabler. Dessa är variabler som är deklarerade inne i metoder. På samma sätt som ett objekt sparar sitt state i en instansvariabel så använder metoder lokala variabler för att 
+   spara temporärt state. Det finns ingen speciell syntax för att deklarera en lokal variabel utan att den är lokal avgörs från var den är deklarerad.
+
+
+  ```java
+  public class MyFirstClass {
+    //i intelliJ, skriv "psvm" och tryck enter för att få en main-metod
+    public static void main(String[] args) {
+    //"sout" och enter ger System.out.println()
+    //args är argument in till programmet, args[0] är det första argumentet
+        System.out.println("Hello World " + args[0]);
+  }
+  }
+
+  ```
+
+- asda
 
 
 

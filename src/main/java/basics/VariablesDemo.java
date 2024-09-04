@@ -7,7 +7,7 @@ public class VariablesDemo {
     private int quantity;
 
     //instansvariabel
-    //om variabelnamnet består av flera ord börja varje efterföljande ord med stor bokstav.
+    //om variabelnamnet består av flera ord börja varje efterföljande ord med stor bokstav (camelCase).
     private String firstName;
 
     //Klassvariabel. En klassvariabel är deklarerad med `static` keyword; detta betyder att det endast finns en kopia av denna variabeln som delas mellan alla objekt av klassen. Exempelvis
