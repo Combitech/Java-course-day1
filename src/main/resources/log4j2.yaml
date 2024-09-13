@@ -1,0 +1,23 @@
+Appenders:
+  Console:
+    name: "console"
+    PatternLayout:
+      pattern: "%d{yyyy-MM-dd HH:mm:ss} %p %m%n"
+  File:
+    name: "file"
+    fileName: logs/logfile.log
+    PatternLayout:
+      pattern: "%d{yyyy-MM-dd HH:mm:ss} %p %m%n"
+Loggers:
+  Logger:
+    name: "com.combitech.HelloWorld"
+    level: "error"
+    additivity: false
+    AppenderRef:
+      - ref: "console"
+      - ref: "file"
+  Root:
+    level: "warn"
+    AppenderRef:
+      - ref: "console"
+      - ref: "file"

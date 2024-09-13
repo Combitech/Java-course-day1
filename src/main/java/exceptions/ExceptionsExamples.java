@@ -37,7 +37,7 @@ public class ExceptionsExamples {
         try {
             stream = new FileInputStream(file);
         } catch (FileNotFoundException e) {
-            log.error("FEL", e.getMessage());
+            log.error("FEL", e);
             //vi kastar ett checked exception som måste hanteras av anroparen av vår metod
             throw new CustomException("Någonting gick fel");
         }

@@ -46,6 +46,31 @@ public class CollectionsExample {
             iterator.next();
             iterator.remove();
         }
+
+        List<String> strings = List.of("METAR", "TAF", "SIGMET", "AIREP", "SNOWTAM");
+
+
+        List<String> newStrings = new ArrayList<>();
+        for(int i = 0; i < strings.size(); i++) {
+            String temp = strings.get(i);
+            if(temp.length() >= 4) {
+                newStrings.add(temp.substring(3,4));
+            }
+
+        }
+        System.out.println(newStrings);
+
+
+        List<String> newStringsEnhanced = new ArrayList<>();
+        for(String temp: strings) {
+            if(temp.length() >= 4) {
+                newStringsEnhanced.add(temp.substring(3,4));
+            }
+        }
+        System.out.println(newStringsEnhanced);
+
+        List<String> newStringsFunctional = strings.stream().filter(s -> s.length() >= 4).map(s -> s.substring(3,4)).toList();
+        System.out.println(newStringsFunctional);
     }
 
     public void mapExamples(){

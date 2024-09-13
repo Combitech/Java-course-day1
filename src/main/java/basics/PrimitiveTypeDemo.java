@@ -16,7 +16,7 @@ public class PrimitiveTypeDemo {
     //32 bits , -2^31 - 2^31-1
     int integerPrimitive;
 
-    //-2^63-2^63-1
+    //64 bits, -2^63-2^63-1
     long longPrimitive;
 
     //flyttal 32 bits
